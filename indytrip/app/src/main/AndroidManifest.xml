@@ -20,6 +20,22 @@
             android:name=".DateActivity"
             android:label="@string/title_activity_date" >
         </activity>
+        <activity
+            android:name=".HotelActivity"
+            android:label="@string/title_activity_hotel" >
+        </activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:label="@string/title_activity_profile" >
+        </activity>
+        <activity
+            android:name=".PreferenceActivity"
+            android:label="@string/title_activity_preference" >
+        </activity>
+        <activity
+            android:name=".ResultActivity"
+            android:label="@string/title_activity_result" >
+        </activity>
     </application>
 
 </manifest>

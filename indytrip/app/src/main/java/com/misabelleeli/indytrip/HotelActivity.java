@@ -10,17 +10,18 @@ import android.widget.Button;
 
 import com.misabelleeli.indytrip.R;
 
-public class DateActivity extends Activity {
-    Button startButton;
+public class HotelActivity extends Activity {
+    Button nextButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_date);
-        startButton = (Button)findViewById(R.id.startButton);
-        startButton.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_hotel);
+        nextButton = (Button)findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(DateActivity.this, HotelActivity.class);
+                Intent i = new Intent(HotelActivity.this, ProfileActivity.class);
                 startActivity(i);
             }
         });
@@ -30,7 +31,7 @@ public class DateActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.date, menu);
+        getMenuInflater().inflate(R.menu.hotel, menu);
         return true;
     }
 
@@ -45,5 +46,4 @@ public class DateActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }
