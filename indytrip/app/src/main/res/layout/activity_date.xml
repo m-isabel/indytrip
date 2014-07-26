@@ -49,6 +49,16 @@
                 android:background="@color/blue"
                 android:textColor="@color/white"
                 android:textSize="20sp"/>
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/numberOfDays"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:textSize="30sp"
+                android:text="0 Days"
+            />
         </LinearLayout>
     </RelativeLayout>
 

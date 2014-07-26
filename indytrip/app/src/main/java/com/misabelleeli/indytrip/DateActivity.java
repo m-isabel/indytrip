@@ -1,54 +1,50 @@
 package com.misabelleeli.indytrip;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.TextView;
 
 import com.misabelleeli.indytrip.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
-public class DateActivity extends FragmentActivity  {
+public class DateActivity extends Activity  {
     private Button startButton;
     private Button checkInButton;
     private Button checkOutButton;
+    private TextView numberOfDays;
 
     private int pYear;
     private int pMonth;
     private int pDay;
-    private com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener checkInListener = new com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet(com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog, int i, int i2, int i3) {
-            pYear = i;
-            pMonth = i2;
-            pDay = i3;
-            updateCheckInDate();
-        }
-    };
-    private com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener checkOutListener = new com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet(com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog, int i, int i2, int i3) {
-            pYear = i;
-            pMonth = i2;
-            pDay = i3;
-            updateCheckOutDate();
-        }
-    };
+    private int checkInYear = 0;
+    private int checkInMonth = 0;
+    private int checkInDay = 0;
+    private int diffDays = 0;
+
     private DatePickerDialog.OnDateSetListener pCheckInListener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
             pYear = year;
             pMonth = monthOfYear;
             pDay = dayOfMonth;
+            checkInYear = pYear;
+            checkInMonth = pMonth;
+            checkInDay = pDay;
             updateCheckInDate();
 
         }
@@ -60,24 +56,54 @@ public class DateActivity extends FragmentActivity  {
             pMonth = monthOfYear;
             pDay = dayOfMonth;
             updateCheckOutDate();
-
         }
     };
     private void updateCheckInDate() {
+        Date checkInDate = null;
+        Date checkOutDate = null;
         checkInButton.setText(
                 new StringBuilder()
                 .append(pMonth + 1).append("/")
                 .append(pDay).append("/")
                 .append(pYear)
         );
+        if(!checkOutButton.getText().toString().equals("Choose Date")) {
+            SimpleDateFormat date = new SimpleDateFormat("MM/dd/yyyy");
+            try {
+                checkInDate = date.parse(checkInButton.getText().toString());
+                checkOutDate = date.parse(checkOutButton.getText().toString());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            diffDays = (int) ((checkOutDate.getTime() - checkInDate.getTime())/ (1000 * 60 * 60 * 24));
+            //Same day counts as 1 day
+            diffDays++;
+            numberOfDays.setText(diffDays+" Days");
+
+        }
     }
     private void updateCheckOutDate() {
+        Date checkInDate = null;
+        Date checkOutDate = null;
         checkOutButton.setText(
                 new StringBuilder()
                         .append(pMonth + 1).append("/")
                         .append(pDay).append("/")
                         .append(pYear)
         );
+        if(!checkInButton.getText().toString().equals("Choose Date")) {
+            SimpleDateFormat date = new SimpleDateFormat("MM/dd/yyyy");
+            try {
+                checkInDate = date.parse(checkInButton.getText().toString());
+                checkOutDate = date.parse(checkOutButton.getText().toString());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            diffDays = (int) ((checkOutDate.getTime() - checkInDate.getTime())/ (1000 * 60 * 60 * 24));
+            //Same day counts as 1 day
+            diffDays++;
+            numberOfDays.setText(diffDays+" Days");
+        }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +112,7 @@ public class DateActivity extends FragmentActivity  {
         startButton = (Button)findViewById(R.id.startButton);
         checkInButton = (Button)findViewById(R.id.checkInButton);
         checkOutButton = (Button)findViewById(R.id.checkOutButton);
+        numberOfDays = (TextView)findViewById(R.id.numberOfDays);
 
         //Get current date
         final Calendar cal = Calendar.getInstance();
@@ -93,12 +120,23 @@ public class DateActivity extends FragmentActivity  {
         pMonth = cal.get(Calendar.MONTH);
         pDay = cal.get(Calendar.DAY_OF_MONTH);
 
-        final com.fourmob.datetimepicker.date.DatePickerDialog checkInDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(checkInListener, pYear, pMonth, pDay, false);
-        final com.fourmob.datetimepicker.date.DatePickerDialog checkOutDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(checkOutListener, pYear, pMonth, pDay, false);
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(diffDays < 1) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(DateActivity.this);
+                    builder.setMessage("Please choose proper date of travel.")
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    //do nothing
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                    return;
+                }
                 Intent i = new Intent(DateActivity.this, HotelActivity.class);
                 startActivity(i);
             }
@@ -107,11 +145,7 @@ public class DateActivity extends FragmentActivity  {
         checkInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //showDialog(0);
-                checkInDialog.setVibrate(false);
-                checkInDialog.setYearRange(pYear,pYear+1);
-                checkInDialog.show(getSupportFragmentManager(),"datepicker");
-
+                showDialog(0);
 
             }
         });
@@ -128,7 +162,12 @@ public class DateActivity extends FragmentActivity  {
             case 0:
                 return new DatePickerDialog(this, pCheckInListener, pYear, pMonth, pDay);
             case 1:
-                return new DatePickerDialog(this, pCheckOutListener, pYear, pMonth, pDay);
+                if(checkInYear != 0) {
+                    return new DatePickerDialog(this, pCheckOutListener, checkInYear, checkInMonth, checkInDay);
+                }
+                else {
+                    return new DatePickerDialog(this, pCheckOutListener, pYear, pMonth, pDay);
+                }
 
         }
         return null;
