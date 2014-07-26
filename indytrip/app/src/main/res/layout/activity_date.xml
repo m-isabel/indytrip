@@ -2,25 +2,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.misabelleeli.indytrip.DateActivity">
-
-    <DatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/datePicker"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="133dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/startButton"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp">
+            <TextView
+                android:id="@+id/checkinLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check-in"
+                android:textSize="20sp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginBottom="4dp"
+                />
+            <Button
+                android:id="@+id/checkInButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose Date"
+                android:textColor="@color/white"
+                android:background="@color/blue"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/checkoutLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check-out"
+                android:textSize="20sp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="50dp"
+                />
+            <Button
+                android:id="@+id/checkOutButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose Date"
+                android:background="@color/blue"
+                android:textColor="@color/white"
+                android:textSize="20sp"/>
+        </LinearLayout>
+    </RelativeLayout>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
         android:text="Start Planning"
         android:id="@+id/startButton"
-        android:layout_below="@+id/datePicker"
+        android:background="@color/orange"
+        android:textColor="@color/white"
+        android:textSize="23sp"
         android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
