@@ -28,6 +28,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -156,8 +157,12 @@ public class DateActivity extends Activity  {
                 HttpClient httpclient = new DefaultHttpClient();
                 HttpPost httppost = new HttpPost(url);
 
-                String data = URLEncoder.encode("NoOfDays", "UTF-8")
-                        + "=" + URLEncoder.encode(NoOfDays, "UTF-8");
+                try {
+                    String data = URLEncoder.encode("NoOfDays", "UTF-8")
+                            + "=" + URLEncoder.encode(NoOfDays, "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
                 //send data to server
                 //diffDays
 
