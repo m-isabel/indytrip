@@ -3,7 +3,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.misabelleeli.indytrip.DateActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/orange"
+        android:gravity="center_vertical"
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp"
+        android:paddingLeft="15dp">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/travel"/>
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textSize="22sp"
+            android:layout_marginLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Schedule"
+            android:textColor="#fff"
+            />
+    </LinearLayout>
     <RelativeLayout
+        android:id="@+id/wrapper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/startButton"
@@ -58,19 +86,20 @@
                 android:layout_marginTop="25dp"
                 android:textSize="30sp"
                 android:text="0 Days"
-            />
+                />
         </LinearLayout>
     </RelativeLayout>
 
     <Button
         android:layout_alignParentBottom="true"
         android:layout_width="fill_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:text="Start Planning"
         android:id="@+id/startButton"
-        android:background="@color/orange"
+        android:background="@color/start_green"
         android:textColor="@color/white"
         android:textSize="23sp"
+        android:textStyle="bold"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
