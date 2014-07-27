@@ -22,7 +22,7 @@ public class IntroActivity extends Activity {
 
         // Delay for 1 sec
         handler = new Handler();
-        handler.postDelayed(irun, 1000);
+        handler.postDelayed(irun, 1300);
     }
 
     Runnable irun = new Runnable() {
