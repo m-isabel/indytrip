@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
     android:background="#eee"
-    android:padding="10dp">
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:gravity="center_vertical|center"
+    >
 
 
     <TextView
         android:id="@+id/resultHeader"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
         android:paddingLeft="4dp"
+        android:gravity="center_vertical"
         android:text="Day 1"
-        android:textSize="20sp" />
+        android:textSize="23sp" />
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/down_blue"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+    />
 
-</LinearLayout>
+
+</RelativeLayout>
