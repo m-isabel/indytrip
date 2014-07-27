@@ -77,7 +77,7 @@ public class HotelActivity extends Activity {
         defaultLabel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(HotelActivity.this, ProfileActivity.class);
+                Intent i = new Intent(HotelActivity.this, PreferenceActivity.class);
                 startActivity(i);
             }
         });
@@ -152,7 +152,7 @@ public class HotelActivity extends Activity {
             rowView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i = new Intent(HotelActivity.this, ProfileActivity.class);
+                    Intent i = new Intent(HotelActivity.this, PreferenceActivity.class);
                     startActivity(i);
                 }
             });

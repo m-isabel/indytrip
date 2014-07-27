@@ -7,6 +7,7 @@
     android:paddingTop="6dp"
     android:paddingBottom="6dp"
     android:paddingRight="6dp"
+    android:background="#fff"
     >
     <ImageView
         android:id="@+id/hotel_image"
