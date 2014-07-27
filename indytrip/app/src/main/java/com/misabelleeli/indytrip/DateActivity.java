@@ -35,6 +35,7 @@ public class DateActivity extends Activity  {
     private int checkInMonth = 0;
     private int checkInDay = 0;
     private int diffDays = 0;
+    private String url;
 
     private DatePickerDialog.OnDateSetListener pCheckInListener = new DatePickerDialog.OnDateSetListener() {
         @Override
@@ -136,6 +137,28 @@ public class DateActivity extends Activity  {
                     AlertDialog alert = builder.create();
                     alert.show();
                     return;
+                }
+
+                url="http://http://indytrip.comxa.com/test.php?NoOfDays="+diffDays;
+                HttpClient httpclient = new DefaultHttpClient();
+                HttpGet httpget = new HttpGet(url);
+                try {
+                    HttpResponse response = httpclient.execute(httpget);
+                    if(response != null) {
+                        String line = "";
+                        InputStream inputstream = response.getEntity().getContent();
+
+                //if(line.equals)
+               // Toast.makeText(DateActivity.this, line, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(DateActivity.this, "Unable to complete your request", Toast.LENGTH_LONG).show();
+                    }
+                } catch (ClientProtocolException e) {
+                    Toast.makeText(DateActivity.this, "Caught ClientProtocolException", Toast.LENGTH_SHORT).show();
+                } catch (IOException e) {
+                    Toast.makeText(DateActivity.this, "Caught IOException", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(DateActivity.this, "Caught Exception", Toast.LENGTH_SHORT).show();
                 }
 
                 //send data to server
