@@ -21,7 +21,9 @@ import com.misabelleeli.indytrip.R;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.IOException;
@@ -30,6 +32,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.net.URLEncoder;
 
 public class DateActivity extends Activity  {
     private Button startButton;
@@ -147,29 +150,16 @@ public class DateActivity extends Activity  {
                     alert.show();
                     return;
                 }
-
-                url="http://http://indytrip.comxa.com/test.php?NoOfDays="+URLEncoder.encode(diffDays, "UTF-8");
+                String NoOfDays = Integer.toString(diffDays);
+/*
+                url="http://http://indytrip.comxa.com/test.php";
                 HttpClient httpclient = new DefaultHttpClient();
-                HttpGet httpget = new HttpGet(url);
+                HttpPost httppost = new HttpPost(url);
                 try {
-                    HttpResponse response = httpclient.execute(httpget);
-                    if(response != null) {
-                        String line = "";
-                        InputStream inputstream = response.getEntity().getContent();
-
-                //if(line.equals)
-               // Toast.makeText(DateActivity.this, line, Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(DateActivity.this, "Unable to complete your request", Toast.LENGTH_LONG).show();
-                    }
-                } catch (ClientProtocolException e) {
-                    Toast.makeText(DateActivity.this, "Caught ClientProtocolException", Toast.LENGTH_SHORT).show();
-                } catch (IOException e) {
-                    Toast.makeText(DateActivity.this, "Caught IOException", Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    Toast.makeText(DateActivity.this, "Caught Exception", Toast.LENGTH_SHORT).show();
+                    httppost.setEntity(new UrlEncodedFormEntity(diffDays));
+                    httpclient.execute(httppost);
                 }
-
+*/
                 //send data to server
                 //diffDays
 
