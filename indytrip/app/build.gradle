@@ -18,7 +18,13 @@ android {
         }
     }
 }
+repositories {
+    mavenCentral()
+}
 
+dependencies{
+    compile 'com.nhaarman.listviewanimations:library:2.6.0'
+}
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }

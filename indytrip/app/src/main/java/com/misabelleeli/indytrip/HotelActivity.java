@@ -27,6 +27,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.misabelleeli.indytrip.R;
+import com.nhaarman.listviewanimations.swinginadapters.prepared.SwingBottomInAnimationAdapter;
+import com.nhaarman.listviewanimations.swinginadapters.prepared.SwingRightInAnimationAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +45,7 @@ public class HotelActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.in, R.anim.out);
         setContentView(R.layout.activity_hotel);
 
         if(hotels.size() == 0)
@@ -99,7 +102,9 @@ public class HotelActivity extends Activity {
     private void generateList(ListView view) {
         defaultView.setVisibility(View.GONE);
         adapter = new MyListAdapter(getBaseContext(), R.layout.hotel_item, hotels);
-        view.setAdapter(adapter);
+        SwingBottomInAnimationAdapter swing = new SwingBottomInAnimationAdapter(adapter);
+        swing.setAbsListView(view);
+        view.setAdapter(swing);
         view.setTextFilterEnabled(true);
     }
     private class MyListAdapter extends ArrayAdapter<Hotel> implements Filterable {
