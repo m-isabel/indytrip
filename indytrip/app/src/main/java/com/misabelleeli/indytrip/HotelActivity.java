@@ -1,12 +1,14 @@
 package com.misabelleeli.indytrip;
 
 import android.app.Activity;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,15 +44,6 @@ public class HotelActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel);
-        /*nextButton = (Button)findViewById(R.id.nextButton);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(HotelActivity.this, ProfileActivity.class);
-                startActivity(i);
-            }
-        });
-        */
 
         if(hotels.size() == 0)
         {
@@ -79,10 +73,11 @@ public class HotelActivity extends Activity {
             }
         });
 
+        defaultLabel.setText(Html.fromHtml(getResources().getString(R.string.default_label)));
         defaultLabel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(HotelActivity.this, ProfileActivity.class);
+                Intent i = new Intent(HotelActivity.this, PreferenceActivity.class);
                 startActivity(i);
             }
         });
@@ -96,6 +91,7 @@ public class HotelActivity extends Activity {
         hotels.add(new Hotel("Hilton Garden Inn Downtown", "10 East Market Street, Indianapolis"));
         hotels.add(new Hotel("Hampton Inn Downtown"," 105 S. Meridian St., Indianapolis"));
         hotels.add(new Hotel("JW Marriott", "10 S West Street, 701 W. Washington Street, Indianapolis"));
+        hotels.add(new Hotel("Sheraton City Centre Hotel", "31 West Ohio Street, Indianapolis"));
         for(Hotel hotel : hotels) {
             searchList.add(hotel.getAddress());
         }
@@ -156,7 +152,7 @@ public class HotelActivity extends Activity {
             rowView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i = new Intent(HotelActivity.this, ProfileActivity.class);
+                    Intent i = new Intent(HotelActivity.this, PreferenceActivity.class);
                     startActivity(i);
                 }
             });
@@ -190,8 +186,12 @@ public class HotelActivity extends Activity {
                 if(filterResults.count == 0) {
                     list = original_list;
                     notifyDataSetInvalidated();
+                    defaultView.setVisibility(View.VISIBLE);
+                    hotelList.setVisibility(View.GONE);
                 }
                 else {
+                    defaultView.setVisibility(View.GONE);
+                    hotelList.setVisibility(View.VISIBLE);
                     list = (List<Hotel>) filterResults.values;
                     notifyDataSetChanged();
                 }
