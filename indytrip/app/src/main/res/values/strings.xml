@@ -9,5 +9,11 @@
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="title_activity_preference">PreferenceActivity</string>
     <string name="title_activity_result">ResultActivity</string>
+    <string name="default_label">
+        <![CDATA[
+            Not staying in these hotels?<br>
+            Start from the <font color="red"><strong>Monument Circle</strong></font>!
+        ]]>
+    </string>
 
 </resources>
