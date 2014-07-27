@@ -137,6 +137,11 @@ public class DateActivity extends Activity  {
                     alert.show();
                     return;
                 }
+
+                //send data to server
+                //diffDays
+
+
                 Intent i = new Intent(DateActivity.this, HotelActivity.class);
                 startActivity(i);
             }

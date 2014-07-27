@@ -60,6 +60,10 @@ public class PreferenceActivity extends Activity implements SeekBar.OnSeekBarCha
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Send data to Server
+                //hashMapPref <- key: category name, value: rating number (0 ~ 4)
+
+                
                 Intent i = new Intent(PreferenceActivity.this, ResultActivity.class);
                 startActivity(i);
             }

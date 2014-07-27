@@ -82,6 +82,8 @@ public class HotelActivity extends Activity {
             public void onClick(View view) {
                 Intent i = new Intent(HotelActivity.this, PreferenceActivity.class);
                 startActivity(i);
+
+                //Send Data to Server - Monument Circle
             }
         });
 
@@ -157,6 +159,11 @@ public class HotelActivity extends Activity {
             rowView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+                    //Send data to server here
+                    //hotel_name.getText().toString() <- hotel name
+                    //hotel_address.getText().toString() <- hotel address
+
                     Intent i = new Intent(HotelActivity.this, PreferenceActivity.class);
                     startActivity(i);
                 }
