@@ -34,10 +34,6 @@
     </LinearLayout>
     <ExpandableListView
         android:id="@+id/result_list"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginRight="6dp"
-        android:background="@drawable/shape"
         android:layout_below="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

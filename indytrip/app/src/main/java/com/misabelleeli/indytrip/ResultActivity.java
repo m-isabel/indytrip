@@ -3,7 +3,9 @@ package com.misabelleeli.indytrip;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -144,6 +146,11 @@ public class ResultActivity extends Activity {
             //Address - R.id.result_address
             result_name_label.setText(child.getResult_name());
             result_address_label.setText(child.getResult_address());
+
+            Resources res = getResources();
+            int resID = res.getIdentifier(child.getResullt_image(), "drawable", getPackageName());
+            Drawable drawable = res.getDrawable(resID);
+            result_image_view.setImageDrawable(drawable);
 
             //List view click listener
             convertView.setOnClickListener(new View.OnClickListener() {
