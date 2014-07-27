@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.misabelleeli.indytrip.R;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -25,6 +26,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -153,20 +155,45 @@ public class DateActivity extends Activity  {
                 }
                 String NoOfDays = Integer.toString(diffDays);
 
-                url="http://http://indytrip.comxa.com/test.php";
-                HttpClient httpclient = new DefaultHttpClient();
-                HttpPost httppost = new HttpPost(url);
+
+
 
                 try {
-                    String data = URLEncoder.encode("NoOfDays", "UTF-8")
-                            + "=" + URLEncoder.encode(NoOfDays, "UTF-8");
+
+                    url="http://indytrip.comxa.com/test.php?NoOfDays="+diffDays;
+/*                    HttpClient httpclient = new DefaultHttpClient();
+                    HttpGet httpget = new HttpGet(url);
+                    HttpResponse response = null;
+
+                    response = httpclient.execute(httpget);
+                    HttpEntity entity = response.getEntity();
+                    InputStream is = entity.getContent();
+                   Log.v("GET RESPONSE", is.toString());*/
+                    HttpClient client = new DefaultHttpClient();
+
+                    String targetUrl = "http://www.example.com";
+
+                    HttpGet httpGet = new HttpGet(targetUrl);
+
+                    HttpResponse response = null;
+
+                    response = client.execute(httpGet);
+
+                    HttpEntity entity = response.getEntity();
+
+                    if(entity!=null){
+
+                        Log.v("GET RESPONSE", EntityUtils.toString(entity));
+
+                    }
+
                 } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
+
+                    Log.v("",e.toString());
+                } catch(IOException e) { Log.v("",e.toString()); }
+                catch(Exception e) { Log.v("",e.toString()); }
                 //send data to server
                 //diffDays
-
-
                 Intent i = new Intent(DateActivity.this, HotelActivity.class);
                 startActivity(i);
             }
