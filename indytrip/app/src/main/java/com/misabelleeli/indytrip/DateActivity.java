@@ -148,7 +148,7 @@ public class DateActivity extends Activity  {
                     return;
                 }
 
-                url="http://http://indytrip.comxa.com/test.php?NoOfDays="+diffDays;
+                url="http://http://indytrip.comxa.com/test.php?NoOfDays="+URLEncoder.encode(diffDays, "UTF-8");
                 HttpClient httpclient = new DefaultHttpClient();
                 HttpGet httpget = new HttpGet(url);
                 try {
