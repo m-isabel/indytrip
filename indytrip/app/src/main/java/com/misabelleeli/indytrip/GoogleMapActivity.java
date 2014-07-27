@@ -1,18 +1,26 @@
 package com.misabelleeli.indytrip;
 
 import android.app.Activity;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import com.misabelleeli.indytrip.R;
+
+import com.google.android.gms.maps.GoogleMap;
 
 public class GoogleMapActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_google_map);
-
+        setContentView(R.layout.activity_googlemap);
+        /*if (savedInstanceState == null) {
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new PlaceholderFragment())
+                    .commit();
+        }*/
+        getFragmentManager().beginTransaction().add(R.id.container,new PlaceholderFragment(),
+                PlaceholderFragment.class.getName()).commit();
     }
 
 
@@ -34,4 +42,5 @@ public class GoogleMapActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
