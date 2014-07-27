@@ -4,408 +4,350 @@
     android:layout_height="fill_parent"
     android:background="@color/default_screen_bg"
     android:orientation="vertical" >
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/orange"
+        android:gravity="center_vertical"
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp"
+        android:paddingLeft="15dp"
+        android:id="@+id/header">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/travel"/>
+        <TextView
+            android:id="@+id/headerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textSize="22sp"
+            android:layout_marginLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Activity Preferences"
+            android:textColor="#fff"
+            />
+    </LinearLayout>
     <ScrollView
+        android:layout_below="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/prefScrollView">
-    <RelativeLayout
-        android:id="@+id/seekbar_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="@drawable/background_view_rounded_single"
-        android:orientation="vertical"
-        android:visibility="visible"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10dp"
-        android:layout_alignParentTop="true"
-        android:paddingBottom="10dp"
-        android:layout_marginTop="10dp">
+        android:background="#ccc"
+        android:id="@+id/prefScrollView"
+        android:layout_above="@+id/next">
+        <RelativeLayout
+            android:id="@+id/seekbar_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
 
-        <!-- budget bar !-->
-        <TextView
-            android:id="@+id/budget_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Budget"
-            android:textColor="#ffffff"
-            android:textSize="20sp" />
-        <SeekBar
-            android:layout_below="@+id/budget_label"
-            android:id="@+id/budget_bar"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:progress="0"
-            android:max="2"
-            android:progressDrawable="@drawable/progressbar"
-            android:secondaryProgress="0" />
-        <TextView
-            android:id="@+id/single_dollar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/budget_bar"
-            android:text="$"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/budget_bar"
-            android:layout_alignLeft="@+id/single_dollar"
-            android:text="$$"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/budget_bar"
-            android:layout_alignRight="@+id/budget_bar"
-            android:text="$$$"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+            <!-- Budget View -->
+            <RelativeLayout
+                android:id="@+id/budget_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingLeft="6dp"
+                android:paddingTop="6dp"
+                android:paddingRight="5dp">
 
-        <!-- Art Section !-->
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Art"
-            android:id="@+id/art_TV"
-            android:layout_below="@+id/single_dollar"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
-        <SeekBar
-            android:layout_below="@+id/art_TV"
-            android:id="@+id/art_bar"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:progress="0"
-            android:max="100"
-            android:progressDrawable="@drawable/progressbar"
-            android:secondaryProgress="0" />
-        <TextView
-            android:id="@+id/hate_label1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/art_bar"
-            android:text="hate"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/art_bar"
-            android:layout_alignRight="@+id/art_bar"
-            android:text="love"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+                <ImageView
+                    android:id="@+id/budget_icon"
+                    android:src="@drawable/budget"
+                    style="@style/pref_img"
+                    />
+                <TextView
+                    android:id="@+id/budget_label"
+                    android:layout_toRightOf="@id/budget_icon"
+                    android:text="Budget"
+                    style="@style/pref_label"
+                    />
+                <TextView
+                    android:id="@+id/budget_status"
+                    android:layout_alignBottom="@id/budget_label"
+                    style="@style/pref_status"
+                    />
+                <SeekBar
+                    android:layout_below="@+id/budget_label"
+                    android:layout_toRightOf="@id/budget_icon"
+                    android:id="@+id/budget_bar"
+                    style="@style/pref_bar"
+                    />
 
-        <!-- History Section !-->
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="History"
-            android:id="@+id/history_TV"
-            android:layout_below="@+id/hate_label1"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
-        <SeekBar
-            android:layout_below="@+id/history_TV"
-            android:id="@+id/history_bar"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:progress="0"
-            android:max="100"
-            android:progressDrawable="@drawable/progressbar"
-            android:secondaryProgress="0" />
-        <TextView
-            android:id="@+id/hate_label2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/history_bar"
-            android:text="hate"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/history_bar"
-            android:layout_alignRight="@+id/history_bar"
-            android:text="love"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+            </RelativeLayout>
 
-        <!-- Culture Section !-->
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Culture"
-            android:id="@+id/culture_TV"
-            android:layout_below="@+id/hate_label2"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
-        <SeekBar
-            android:layout_below="@+id/culture_TV"
-            android:id="@+id/culture_bar"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:progress="0"
-            android:max="100"
-            android:progressDrawable="@drawable/progressbar"
-            android:secondaryProgress="0" />
-        <TextView
-            android:id="@+id/hate_label3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/culture_bar"
-            android:text="hate"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/culture_bar"
-            android:layout_alignRight="@+id/culture_bar"
-            android:text="love"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+            <!-- Art View -->
+            <RelativeLayout
+                android:id="@+id/art_layout"
+                android:layout_below="@+id/budget_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingLeft="6dp"
+                android:paddingTop="6dp"
+                android:paddingRight="5dp">
 
-        <!-- Sports Section !-->
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Sports"
-            android:id="@+id/sports_TV"
-            android:layout_below="@+id/hate_label3"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
-        <SeekBar
-            android:layout_below="@+id/sports_TV"
-            android:id="@+id/sports_bar"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:progress="0"
-            android:max="100"
-            android:progressDrawable="@drawable/progressbar"
-            android:secondaryProgress="0" />
-        <TextView
-            android:id="@+id/hate_label4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/sports_bar"
-            android:text="hate"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/sports_bar"
-            android:layout_alignRight="@+id/sports_bar"
-            android:text="love"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+                <ImageView
+                    android:id="@+id/art_icon"
+                    android:src="@drawable/art"
+                    style="@style/pref_img"
+                    />
+                <TextView
+                    android:id="@+id/art_label"
+                    android:layout_toRightOf="@id/art_icon"
+                    android:text="Art"
+                    style="@style/pref_label"
+                    />
+                <TextView
+                    android:id="@+id/art_status"
+                    android:layout_alignBottom="@id/art_label"
+                    style="@style/pref_status"
+                    />
+                <SeekBar
+                    android:layout_below="@+id/art_label"
+                    android:layout_toRightOf="@id/art_icon"
+                    android:id="@+id/art_bar"
+                    style="@style/pref_bar"
+                    />
 
-        <!-- Outdoor Section !-->
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Outdoors"
-            android:id="@+id/outdoors_TV"
-            android:layout_below="@+id/hate_label4"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
-        <SeekBar
-            android:layout_below="@+id/outdoors_TV"
-            android:id="@+id/outdoors_bar"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:progress="0"
-            android:max="100"
-            android:progressDrawable="@drawable/progressbar"
-            android:secondaryProgress="0" />
-        <TextView
-            android:id="@+id/hate_label5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/outdoors_bar"
-            android:text="hate"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/outdoors_bar"
-            android:layout_alignRight="@+id/outdoors_bar"
-            android:text="love"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+            </RelativeLayout>
 
-        <!-- Food Section !-->
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Food"
-            android:id="@+id/food_TV"
-            android:layout_below="@+id/hate_label5"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
-        <SeekBar
-            android:layout_below="@+id/food_TV"
-            android:id="@+id/food_bar"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:progress="0"
-            android:max="100"
-            android:progressDrawable="@drawable/progressbar"
-            android:secondaryProgress="0" />
-        <TextView
-            android:id="@+id/hate_label6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/food_bar"
-            android:text="hate"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/food_bar"
-            android:layout_alignRight="@+id/food_bar"
-            android:text="love"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+            <!-- culture View -->
+            <RelativeLayout
+                android:id="@+id/culture_layout"
+                android:layout_below="@+id/art_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingLeft="6dp"
+                android:paddingTop="6dp"
+                android:paddingRight="5dp">
 
-        <!-- Music Section !-->
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Music"
-            android:id="@+id/music_TV"
-            android:layout_below="@+id/hate_label6"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
-        <SeekBar
-            android:layout_below="@+id/music_TV"
-            android:id="@+id/music_bar"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:progress="0"
-            android:max="100"
-            android:progressDrawable="@drawable/progressbar"
-            android:secondaryProgress="0" />
-        <TextView
-            android:id="@+id/hate_label7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/music_bar"
-            android:text="hate"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+                <ImageView
+                    android:id="@+id/culture_icon"
+                    android:src="@drawable/culture"
+                    style="@style/pref_img"
+                    />
+                <TextView
+                    android:id="@+id/culture_label"
+                    android:layout_toRightOf="@id/culture_icon"
+                    android:text="Culture"
+                    style="@style/pref_label"
+                    />
+                <TextView
+                    android:id="@+id/culture_status"
+                    android:layout_alignBottom="@id/culture_label"
+                    style="@style/pref_status"
+                    />
+                <SeekBar
+                    android:layout_below="@+id/culture_label"
+                    android:layout_toRightOf="@id/culture_icon"
+                    android:id="@+id/culture_bar"
+                    style="@style/pref_bar"
+                    />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/music_bar"
-            android:layout_alignRight="@+id/music_bar"
-            android:text="love"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+            </RelativeLayout>
 
-        <!-- NightLife Section !-->
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Night Life"
-            android:id="@+id/nightLife_TV"
-            android:layout_below="@+id/hate_label7"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
-        <SeekBar
-            android:layout_below="@+id/nightLife_TV"
-            android:id="@+id/nightLife_bar"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:progress="0"
-            android:max="100"
-            android:progressDrawable="@drawable/progressbar"
-            android:secondaryProgress="0" />
-        <TextView
-            android:id="@+id/hate_label8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/nightLife_bar"
-            android:text="hate"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/nightLife_bar"
-            android:layout_alignRight="@+id/nightLife_bar"
-            android:text="love"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+            <!-- history View -->
+            <RelativeLayout
+                android:id="@+id/history_layout"
+                android:layout_below="@+id/culture_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingLeft="6dp"
+                android:paddingTop="6dp"
+                android:paddingRight="5dp">
 
-        <Button
-            android:layout_marginTop="20dp"
-            android:id="@+id/next"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Next"
-            android:layout_below="@id/hate_label8"/>
-    </RelativeLayout>
+                <ImageView
+                    android:id="@+id/history_icon"
+                    android:src="@drawable/history"
+                    style="@style/pref_img"
+                    />
+                <TextView
+                    android:id="@+id/history_label"
+                    android:layout_toRightOf="@id/history_icon"
+                    android:text="History"
+                    style="@style/pref_label"
+                    />
+                <TextView
+                    android:id="@+id/history_status"
+                    android:layout_alignBottom="@id/history_label"
+                    style="@style/pref_status"
+                    />
+                <SeekBar
+                    android:layout_below="@+id/history_label"
+                    android:layout_toRightOf="@id/history_icon"
+                    android:id="@+id/history_bar"
+                    style="@style/pref_bar"
+                    />
+
+            </RelativeLayout>
+
+            <!-- sports View -->
+            <RelativeLayout
+                android:id="@+id/sports_layout"
+                android:layout_below="@+id/history_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingLeft="6dp"
+                android:paddingTop="6dp"
+                android:paddingRight="5dp">
+
+                <ImageView
+                    android:id="@+id/sports_icon"
+                    android:src="@drawable/sports"
+                    style="@style/pref_img"
+                    />
+                <TextView
+                    android:id="@+id/sports_label"
+                    android:layout_toRightOf="@id/sports_icon"
+                    android:text="Sports"
+                    style="@style/pref_label"
+                    />
+                <TextView
+                    android:id="@+id/sports_status"
+                    android:layout_alignBottom="@id/sports_label"
+                    style="@style/pref_status"
+                    />
+                <SeekBar
+                    android:layout_below="@+id/sports_label"
+                    android:layout_toRightOf="@id/sports_icon"
+                    android:id="@+id/sports_bar"
+                    style="@style/pref_bar"
+                    />
+
+            </RelativeLayout>
+
+            <!-- outdoors View -->
+            <RelativeLayout
+                android:id="@+id/outdoors_layout"
+                android:layout_below="@+id/sports_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingLeft="6dp"
+                android:paddingTop="6dp"
+                android:paddingRight="5dp">
+
+                <ImageView
+                    android:id="@+id/outdoors_icon"
+                    android:src="@drawable/outdoors"
+                    style="@style/pref_img"
+                    />
+                <TextView
+                    android:id="@+id/outdoors_label"
+                    android:layout_toRightOf="@id/outdoors_icon"
+                    android:text="Outdoors"
+                    style="@style/pref_label"
+                    />
+                <TextView
+                    android:id="@+id/outdoors_status"
+                    android:layout_alignBottom="@id/outdoors_label"
+                    style="@style/pref_status"
+                    />
+                <SeekBar
+                    android:layout_below="@+id/outdoors_label"
+                    android:layout_toRightOf="@id/outdoors_icon"
+                    android:id="@+id/outdoors_bar"
+                    style="@style/pref_bar"
+                    />
+
+            </RelativeLayout>
+
+            <!-- food View -->
+            <RelativeLayout
+                android:id="@+id/food_layout"
+                android:layout_below="@+id/outdoors_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingLeft="6dp"
+                android:paddingTop="6dp"
+                android:paddingRight="5dp">
+
+                <ImageView
+                    android:id="@+id/food_icon"
+                    android:src="@drawable/food"
+                    style="@style/pref_img"
+                    />
+                <TextView
+                    android:id="@+id/food_label"
+                    android:layout_toRightOf="@id/food_icon"
+                    android:text="Food"
+                    style="@style/pref_label"
+                    />
+                <TextView
+                    android:id="@+id/food_status"
+                    android:layout_alignBottom="@id/food_label"
+                    style="@style/pref_status"
+                    />
+                <SeekBar
+                    android:layout_below="@+id/food_label"
+                    android:layout_toRightOf="@id/food_icon"
+                    android:id="@+id/food_bar"
+                    style="@style/pref_bar"
+                    />
+
+            </RelativeLayout>
+
+            <!-- night View -->
+            <RelativeLayout
+                android:id="@+id/night_layout"
+                android:layout_below="@+id/food_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:paddingLeft="6dp"
+                android:paddingTop="6dp"
+                android:paddingRight="5dp">
+
+                <ImageView
+                    android:id="@+id/night_icon"
+                    android:src="@drawable/night"
+                    style="@style/pref_img"
+                    />
+                <TextView
+                    android:id="@+id/night_label"
+                    android:layout_toRightOf="@id/night_icon"
+                    android:text="Night Life"
+                    style="@style/pref_label"
+                    />
+                <TextView
+                    android:id="@+id/night_status"
+                    android:layout_alignBottom="@id/night_label"
+                    style="@style/pref_status"
+                    />
+                <SeekBar
+                    android:layout_below="@+id/night_label"
+                    android:layout_toRightOf="@id/night_icon"
+                    android:id="@+id/night_bar"
+                    style="@style/pref_bar"
+                    />
+
+            </RelativeLayout>
+        </RelativeLayout>
     </ScrollView>
+    <Button
+        android:layout_alignParentBottom="true"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:text="Start Planning"
+        android:id="@+id/next"
+        android:background="@color/start_green"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

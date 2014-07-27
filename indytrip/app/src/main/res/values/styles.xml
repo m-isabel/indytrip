@@ -5,4 +5,38 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="pref_img">
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">4dp</item>
+    </style>
+    <style name="pref_label">
+        <item name="android:layout_marginLeft">22dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="pref_status">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:text">Test</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="pref_bar">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:progress">0</item>
+        <item name="android:max">100</item>
+        <item name="android:progressDrawable">@drawable/progressbar</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:secondaryProgress">0</item>
+    </style>
 </resources>
