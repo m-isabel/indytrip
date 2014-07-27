@@ -74,7 +74,9 @@ public class PlaceholderFragment extends MapFragment implements LocationListener
             @Override
             public void onInfoWindowClick(Marker marker) {
                 //This will redirect it to GoogleMaps
-                String url = "http://maps.google.com/maps?daddr="+currentLat+","+currentLong;
+                // Getting the position from the marker
+                LatLng latLng = marker.getPosition();
+                String url = "http://maps.google.com/maps?daddr="+latLng.latitude+","+latLng.longitude;
                 Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(url));
                 intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
                 startActivity(intent);
