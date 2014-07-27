@@ -7,7 +7,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,7 +58,15 @@ public class PreferenceActivity extends Activity implements SeekBar.OnSeekBarCha
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.in, R.anim.out);
         setContentView(R.layout.activity_preference);
+
         populateStatus();
+        Animation slideup = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slideup);
+        RelativeLayout layout = (RelativeLayout)findViewById(R.id.seekbar_layout);
+
+        layout.startAnimation(slideup);
+        layout.setVisibility(View.VISIBLE);
+
+
         next = (Button) findViewById(R.id.next);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +74,7 @@ public class PreferenceActivity extends Activity implements SeekBar.OnSeekBarCha
                 //Send data to Server
                 //hashMapPref <- key: category name, value: rating number (0 ~ 4)
 
-                
+
                 Intent i = new Intent(PreferenceActivity.this, ResultActivity.class);
                 startActivity(i);
             }
@@ -132,7 +143,11 @@ public class PreferenceActivity extends Activity implements SeekBar.OnSeekBarCha
                 Arrays.asList("Not a Priority", "Limited Interest", "Clubbing is Cool", "Important", "Night Owl")
         );
     }
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.end_in, R.anim.end_out);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -89,7 +89,11 @@ public class HotelActivity extends Activity {
 
 
     }
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.end_in, R.anim.end_out);
+    }
     private void populateHotels() {
         hotels.add(new Hotel("The Alexender", "333 South Delaware Street, Indianapolis"));
         hotels.add(new Hotel("The Westin","50 South Capitol Ave., Indianapolis"));
