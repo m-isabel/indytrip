@@ -343,7 +343,7 @@
         android:layout_alignParentBottom="true"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
-        android:text="Start Planning"
+        android:text="Plan My Trip"
         android:id="@+id/next"
         android:background="@color/start_green"
         android:textColor="@color/white"
