@@ -11,24 +11,21 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 
 public class PreferenceActivity extends Activity {
-    Button nextButton;
+    Button next;
     private SeekBar seekBarControl = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preference);
-        nextButton = (Button) findViewById(R.id.nextButton);
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        next = (Button) findViewById(R.id.next);
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(PreferenceActivity.this, ResultActivity.class);
                 startActivity(i);
             }
         });
-
-
-        setContentView(R.layout.activity_preference);
 
         seekBarControl = (SeekBar) findViewById(R.id.budget_bar);
         seekBarControl.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
