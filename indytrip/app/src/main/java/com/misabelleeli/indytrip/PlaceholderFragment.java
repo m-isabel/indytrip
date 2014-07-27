@@ -76,6 +76,12 @@ public class PlaceholderFragment extends MapFragment implements LocationListener
                 //This will redirect it to GoogleMaps
                 // Getting the position from the marker
                 LatLng latLng = marker.getPosition();
+                /*
+                * "http://maps.google.com/maps?saddr="
+                + Constants.latitude + ","
+                + Constants.longitude + "&daddr="
+                + latitude + "," + longitude
+                * */
                 String url = "http://maps.google.com/maps?daddr="+latLng.latitude+","+latLng.longitude;
                 Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(url));
                 intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
@@ -140,6 +146,7 @@ public class PlaceholderFragment extends MapFragment implements LocationListener
             return null;
         }
     }
+
 
     /*
     public PlaceholderFragment() {
