@@ -5,6 +5,10 @@
     android:background="@color/default_screen_bg"
     android:orientation="vertical" >
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/prefScrollView">
     <RelativeLayout
         android:id="@+id/seekbar_layout"
         android:layout_width="fill_parent"
@@ -19,6 +23,7 @@
         android:paddingBottom="10dp"
         android:layout_marginTop="10dp">
 
+        <!-- budget bar !-->
         <TextView
             android:id="@+id/budget_label"
             android:layout_width="wrap_content"
@@ -27,7 +32,6 @@
             android:text="Budget"
             android:textColor="#ffffff"
             android:textSize="20sp" />
-
         <SeekBar
             android:layout_below="@+id/budget_label"
             android:id="@+id/budget_bar"
@@ -38,7 +42,6 @@
             android:max="2"
             android:progressDrawable="@drawable/progressbar"
             android:secondaryProgress="0" />
-
         <TextView
             android:id="@+id/single_dollar"
             android:layout_width="wrap_content"
@@ -48,7 +51,6 @@
             android:textSize="20sp"
             android:textColor="#ffffff"
             android:layout_marginLeft="@dimen/activity_vertical_margin" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +60,6 @@
             android:textSize="20sp"
             android:textColor="#ffffff"
             android:layout_marginLeft="@dimen/activity_vertical_margin" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,93 +70,342 @@
             android:textColor="#ffffff"
             android:layout_marginLeft="@dimen/activity_vertical_margin" />
 
-        <CheckBox
-            android:layout_marginTop="16dp"
+        <!-- Art Section !-->
+        <TextView
+            android:layout_marginTop="20dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Art"
-            android:id="@+id/art_checkBox"
+            android:id="@+id/art_TV"
             android:layout_below="@+id/single_dollar"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+        <SeekBar
+            android:layout_below="@+id/art_TV"
+            android:id="@+id/art_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:progress="0"
+            android:max="100"
+            android:progressDrawable="@drawable/progressbar"
+            android:secondaryProgress="0" />
+        <TextView
+            android:id="@+id/hate_label1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/art_bar"
+            android:text="hate"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/art_bar"
+            android:layout_alignRight="@+id/art_bar"
+            android:text="love"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
 
-        <CheckBox
+        <!-- History Section !-->
+        <TextView
+            android:layout_marginTop="20dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="History"
-            android:id="@+id/history_checkBox"
-            android:layout_below="@+id/art_checkBox"
+            android:id="@+id/history_TV"
+            android:layout_below="@+id/hate_label1"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+        <SeekBar
+            android:layout_below="@+id/history_TV"
+            android:id="@+id/history_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:progress="0"
+            android:max="100"
+            android:progressDrawable="@drawable/progressbar"
+            android:secondaryProgress="0" />
+        <TextView
+            android:id="@+id/hate_label2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/history_bar"
+            android:text="hate"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/history_bar"
+            android:layout_alignRight="@+id/history_bar"
+            android:text="love"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
 
-        <CheckBox
+        <!-- Culture Section !-->
+        <TextView
+            android:layout_marginTop="20dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Culture"
-            android:id="@+id/culture_checkBox"
-            android:layout_below="@+id/history_checkBox"
+            android:id="@+id/culture_TV"
+            android:layout_below="@+id/hate_label2"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+        <SeekBar
+            android:layout_below="@+id/culture_TV"
+            android:id="@+id/culture_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:progress="0"
+            android:max="100"
+            android:progressDrawable="@drawable/progressbar"
+            android:secondaryProgress="0" />
+        <TextView
+            android:id="@+id/hate_label3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/culture_bar"
+            android:text="hate"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/culture_bar"
+            android:layout_alignRight="@+id/culture_bar"
+            android:text="love"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
 
-        <CheckBox
+        <!-- Sports Section !-->
+        <TextView
+            android:layout_marginTop="20dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Sports"
-            android:id="@+id/sport_checkBox"
-            android:layout_below="@+id/culture_checkBox"
+            android:id="@+id/sports_TV"
+            android:layout_below="@+id/hate_label3"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
-            android:textColor="@color/white"/>
-
-        <CheckBox
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+        <SeekBar
+            android:layout_below="@+id/sports_TV"
+            android:id="@+id/sports_bar"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Outdoor"
-            android:id="@+id/outdoor_checkBox"
-            android:layout_below="@+id/sport_checkBox"
+            android:layout_margin="10dp"
+            android:progress="0"
+            android:max="100"
+            android:progressDrawable="@drawable/progressbar"
+            android:secondaryProgress="0" />
+        <TextView
+            android:id="@+id/hate_label4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sports_bar"
+            android:text="hate"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sports_bar"
+            android:layout_alignRight="@+id/sports_bar"
+            android:text="love"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+        <!-- Outdoor Section !-->
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Outdoors"
+            android:id="@+id/outdoors_TV"
+            android:layout_below="@+id/hate_label4"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+        <SeekBar
+            android:layout_below="@+id/outdoors_TV"
+            android:id="@+id/outdoors_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:progress="0"
+            android:max="100"
+            android:progressDrawable="@drawable/progressbar"
+            android:secondaryProgress="0" />
+        <TextView
+            android:id="@+id/hate_label5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/outdoors_bar"
+            android:text="hate"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/outdoors_bar"
+            android:layout_alignRight="@+id/outdoors_bar"
+            android:text="love"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
 
-        <CheckBox
+        <!-- Food Section !-->
+        <TextView
+            android:layout_marginTop="20dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Food"
-            android:id="@+id/food_checkBox"
-            android:layout_below="@+id/outdoor_checkBox"
+            android:id="@+id/food_TV"
+            android:layout_below="@+id/hate_label5"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+        <SeekBar
+            android:layout_below="@+id/food_TV"
+            android:id="@+id/food_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:progress="0"
+            android:max="100"
+            android:progressDrawable="@drawable/progressbar"
+            android:secondaryProgress="0" />
+        <TextView
+            android:id="@+id/hate_label6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/food_bar"
+            android:text="hate"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/food_bar"
+            android:layout_alignRight="@+id/food_bar"
+            android:text="love"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
 
-        <CheckBox
+        <!-- Music Section !-->
+        <TextView
+            android:layout_marginTop="20dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Music"
-            android:id="@+id/music_checkBox"
-            android:layout_below="@+id/food_checkBox"
+            android:id="@+id/music_TV"
+            android:layout_below="@+id/hate_label6"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
-            android:textColor="@color/white"/>
-
-        <CheckBox
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+        <SeekBar
+            android:layout_below="@+id/music_TV"
+            android:id="@+id/music_bar"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="NightLife"
-            android:id="@+id/nightLife_checkBox"
-            android:layout_below="@+id/music_checkBox"
+            android:layout_margin="10dp"
+            android:progress="0"
+            android:max="100"
+            android:progressDrawable="@drawable/progressbar"
+            android:secondaryProgress="0" />
+        <TextView
+            android:id="@+id/hate_label7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/music_bar"
+            android:text="hate"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/music_bar"
+            android:layout_alignRight="@+id/music_bar"
+            android:text="love"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+        <!-- NightLife Section !-->
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Night Life"
+            android:id="@+id/nightLife_TV"
+            android:layout_below="@+id/hate_label7"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+        <SeekBar
+            android:layout_below="@+id/nightLife_TV"
+            android:id="@+id/nightLife_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:progress="0"
+            android:max="100"
+            android:progressDrawable="@drawable/progressbar"
+            android:secondaryProgress="0" />
+        <TextView
+            android:id="@+id/hate_label8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nightLife_bar"
+            android:text="hate"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nightLife_bar"
+            android:layout_alignRight="@+id/nightLife_bar"
+            android:text="love"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
 
-
+        <Button
+            android:layout_marginTop="20dp"
+            android:id="@+id/next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:layout_below="@id/hate_label8"/>
     </RelativeLayout>
-    <Button
-        android:id="@+id/next"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Next"
-        android:layout_below="@id/seekbar_layout"/>
+    </ScrollView>
 </RelativeLayout>

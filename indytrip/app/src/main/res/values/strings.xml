@@ -9,5 +9,6 @@
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="title_activity_preference">PreferenceActivity</string>
     <string name="title_activity_result">ResultActivity</string>
+    <string name="title_activity_google_map">GoogleMapActivity</string>
 
 </resources>

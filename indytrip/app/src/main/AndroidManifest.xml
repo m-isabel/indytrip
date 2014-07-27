@@ -36,6 +36,10 @@
             android:name=".ResultActivity"
             android:label="@string/title_activity_result" >
         </activity>
+        <activity
+            android:name=".GoogleMapActivity"
+            android:label="@string/title_activity_google_map" >
+        </activity>
     </application>
 
 </manifest>
