@@ -27,7 +27,8 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:text="The Alexender"/>
+            android:text="The Alexender"
+            android:lineSpacingExtra="-4dp"/>
         <TextView
             android:id="@+id/result_address_label"
             android:layout_width="wrap_content"

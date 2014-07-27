@@ -14,11 +14,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.misabelleeli.indytrip.R;
@@ -59,8 +62,7 @@ public class ResultActivity extends Activity {
         result_headers.add("Day 1");
         result_headers.add("Day 2");
         Result a = new Result("lucas","Lucas Oil Stadium","500 S Capitol Ave","awesome place",0,0);
-        Result b = new Result("ncaa","NCAA Hall of Champions","White River State Park\n " +
-                "801 W Washington St","awesome place2",0,0);
+        Result b = new Result("ncaa","NCAA Hall of Champions","White River State Park 801 W Washington St","awesome place2",0,0);
         Result c = new Result("children_museum","The Children’s Museum of Indianapolis",
                 "3000 N Meridian St","awesome place3",0,0);
         Result d = new Result("art_museum","Indianapolis Museum of Art",
@@ -86,6 +88,7 @@ public class ResultActivity extends Activity {
         result_headers = new ArrayList<String>() ;
         result_items = new HashMap<String, List<Result>>();
         populateItems();
+
 
         adapter = new ExpandableListAdapter(this, result_headers, result_items);
         result_list.setAdapter(adapter);
