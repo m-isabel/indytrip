@@ -151,15 +151,13 @@ public class DateActivity extends Activity  {
                     return;
                 }
                 String NoOfDays = Integer.toString(diffDays);
-/*
+
                 url="http://http://indytrip.comxa.com/test.php";
                 HttpClient httpclient = new DefaultHttpClient();
                 HttpPost httppost = new HttpPost(url);
-                try {
-                    httppost.setEntity(new UrlEncodedFormEntity(diffDays));
-                    httpclient.execute(httppost);
-                }
-*/
+
+                String data = URLEncoder.encode("NoOfDays", "UTF-8")
+                        + "=" + URLEncoder.encode(NoOfDays, "UTF-8");
                 //send data to server
                 //diffDays
 
