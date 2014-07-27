@@ -32,6 +32,7 @@ public class PreferenceActivity extends Activity implements SeekBar.OnSeekBarCha
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.in, R.anim.out);
         setContentView(R.layout.activity_preference);
         next = (Button) findViewById(R.id.next);
         next.setOnClickListener(new View.OnClickListener() {
