@@ -38,11 +38,19 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/startButton"
         android:layout_below="@+id/header_wrapper"
-        android:background="@drawable/date_background"
+        android:background="#000000"
         android:gravity="center">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/date_background3"
+            android:alpha="0.6"
+            android:layout_alignParentLeft="true"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:orientation="vertical"
             android:paddingLeft="60dp"
             android:paddingRight="60dp"
